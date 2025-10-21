@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
 
 import authRoutes from "./routes/auth.js";
+import postRoutes from "./routes/post.js";
 
 dotenv.config();
 const prisma = new PrismaClient();
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 app.get("/", (req, res) => res.send("API is running..."));
 
